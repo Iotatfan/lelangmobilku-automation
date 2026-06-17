@@ -4,7 +4,9 @@
   "description": "Registration Page\r Login Page\r Edit Profile Page",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "bddgen": "bddgen",
+    "test": "playwright test",
+    "test:bdd": "bddgen && playwright test"
   },
   "keywords": [],
   "author": "",

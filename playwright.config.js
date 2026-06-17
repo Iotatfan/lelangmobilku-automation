@@ -2,14 +2,13 @@ const { defineConfig } = require('@playwright/test');
 const { defineBddConfig } = require('playwright-bdd');
 require('dotenv').config();
 
-const testDir = defineBddConfig({
+const bddTestDir = defineBddConfig({
   features: 'features/*.feature',
   steps: 'steps/*.js',
   importTestFrom: 'fixtures/fixtures.js',
 });
 
 module.exports = defineConfig({
-  testDir,
   reporter: 'html',
   use: {
     baseURL: process.env.BASE_URL || 'https://example.com',
@@ -23,7 +22,17 @@ module.exports = defineConfig({
   projects: [
     {
       name: 'chromium',
+      testDir: bddTestDir,
+      grepInvert: /@authenticated/,
       use: { browserName: 'chromium' },
+    },
+    {
+      name: 'authenticated-chromium',
+      testDir: bddTestDir,
+      grep: /@authenticated/,
+      use: {
+        browserName: 'chromium',
+      },
     },
   ],
 });

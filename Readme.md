@@ -69,10 +69,8 @@ Feature: Login
 | ------- | -------------- | --------------- |
 | TS-REG-001 | Successful registration | Account is successfully created |
 | TS-REG-002 | Unsuccessful registration with existing email | Show error message "Email already exists" |
-| TS-REG-003 | Unsuccessful registration with invalid email | Show error message "Invalid email format" |
 | TS-LOG-001 | Successful login with valid credentials | Account is successfully logged in |
 | TS-LOG-002 | Unsuccessful login with invalid password | Show error message "Email and password don't match" |
-| TS-LOG-003 | Unsuccessful login with invalid email | Show error message "Email and password don't match" |
 | TS-EDIT-001 | Successful profile edit | Profile is successfully updated |
 | TS-EDIT-002 | Unsuccessful profile edit with invalid phone number | Show error message "Invalid phone number format" |
 | TS-EDIT-003 | Unsuccessful profile edit with invalid email | Show error message "Invalid email format" |
@@ -84,3 +82,5 @@ Feature: Login
 ### Tidak bisa mengubah banyak field di profile page (seperti Jenis Kendaraan, Kendaraan yang dicari, Data Rekening) tetapi email, password, dan nomor hp bisa diubah
 
 ### Tidak terdapat protection otp sewaktu mengubah field penting seperti email dan password di edit profile page
+
+### Tampilan Greyout pada menu navigasi terlihat seperti tampilan disabled
