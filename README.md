@@ -1,8 +1,11 @@
 # 1. High Risk Area
 
-Registration Page
-Login Page
-Edit Profile Page
+| Feature | Risk Level | Reason |
+| :---: | :---: | :---: |
+Registration | High | Account creation, data validation |
+Login | High | Authentication |
+Edit Profile | Medium | User data modification |
+Menu Navigation | Medium | Post login navigation |
 
 # 2. Test Scenario
 
