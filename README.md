@@ -45,7 +45,6 @@ npm run bddgen
 | :--- | :--- |
 | Playwright HTML Report | `playwright-report/index.html` |
 | Test Result Artifacts | `test-results/` |
-| Test Report (Markdown) | `docs/test-report.md` |
 
 Open the interactive HTML report after a test run:
 
