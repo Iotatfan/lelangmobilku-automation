@@ -1,0 +1,27 @@
+{
+  "existingUser": {
+    "email": "TEST1@email.com",
+    "password": "Password1",
+    "givenName": "Test",
+    "surname": "User",
+    "fullName": "Test User"
+  },
+  "unregisteredUser": {
+    "email": "notregistered@example.com"
+  },
+  "invalidEmail": {
+    "email": "invalidemail"
+  },
+  "invalidPassword": {
+    "password": "wrongpassword"
+  },
+  "register": {
+    "password": "ValidPassword123!",
+    "province": "DKI Jakarta",
+    "city": "Kota Jakarta Selatan",
+    "job": "Lainnya",
+    "bankName": "BANK BCA",
+    "fundSource": "Tabungan",
+    "paymentMethod": "Debit"
+  }
+}
