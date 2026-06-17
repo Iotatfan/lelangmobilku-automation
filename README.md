@@ -106,18 +106,18 @@ Feature: Deposit
 
 # 3. Test Case Detail
 
-| Implemented | ID Case | Test Scenario | Expected Result | Technique | Reason |
-| :---: | ------- | -------------- | --------------- | --------- | ------ |
-| [x] | TC-REG-001 | Successful registration | Account is successfully created | Equivalence Partitioning | Test the valid partition of all required inputs |
-| [x] | TC-REG-002 | Unsuccessful registration with existing email | Show error message "Email has already exist!" | Equivalence Partitioning | Test the invalid partition where certain unique data already exist in system |
-| [x] | TC-REG-003 | Unsuccessful registration with invalid email | Show error message "Email must be a valid email" | Equivalence Partitioning | Test the invalid partition where the input format doesn't match the expected email structure |
-| [x] | TC-LOG-001 | Successful login with valid credentials | Account is successfully logged in | Equivalence Partitioning | Test the valid partition of registered user credentials |
-| [x] | TC-LOG-002 | Unsuccessful login with invalid password | Show error message "Username atau Password anda salah" | Equivalence Partitioning | Test the invalid partition of incorrect credentials |
-| [x] | TC-LOG-003 | Unsuccessful login with unregistered email | Show error message "Username tidak ditemukan/salah" | Equivalence Partitioning | Test the invalid partition of incorrect credentials |
-| [ ] | TC-EDIT-001 | Successful profile edit | Profile is successfully updated | Equivalence Partitioning | Test the valid partition of profile update inputs |
-| [ ] | TC-EDIT-002 | Unsuccessful profile edit with invalid phone number | Show error message "Invalid phone number format" | Boundary Value Analysis | Test the minimum and maximum phone number length |
-| [ ] | TC-EDIT-003 | Unsuccessful profile edit with invalid email | Show error message "Invalid email format" | Equivalence Partitioning | Test the invalid partition where the input format doesn't match the expected email structure |
-| [x] | TC-DEP-001 | Open deposit page | Deposit page is displayed | Equivalence Partitioning | Test the valid partition of user credentials |
+| Implemented | ID Case | Test Scenario | Case Description | Expected Result | Technique | Reason |
+| :---: | ------- | -------------- | --------------- | --------------- | --------- | ------ |
+| [x] | TC-REG-001 | Successful registration | Register with valid personal data and bank account data | Account is successfully created | Equivalence Partitioning | Test the valid partition of all required inputs |
+| [x] | TC-REG-002 | Unsuccessful registration with existing email | Register with existing email | Show error message "Email has already exist!" | Equivalence Partitioning | Test the invalid partition where certain unique data already exist in system |
+| [x] | TC-REG-003 | Unsuccessful registration with invalid email | Register with invalid email format | Show error message "Email must be a valid email" | Equivalence Partitioning | Test the invalid partition where the input format doesn't match the expected email structure |
+| [x] | TC-LOG-001 | Successful login with valid credentials | Login with valid credentials | Account is successfully logged in | Equivalence Partitioning | Test the valid partition of registered user credentials |
+| [x] | TC-LOG-002 | Unsuccessful login with invalid password | Login with invalid password | Show error message "Username atau Password anda salah" | Equivalence Partitioning | Test the invalid partition of incorrect credentials |
+| [x] | TC-LOG-003 | Unsuccessful login with unregistered email | Login with unregistered email | Show error message "Username tidak ditemukan/salah" | Equivalence Partitioning | Test the invalid partition of incorrect credentials |
+| [ ] | TC-EDIT-001 | Successful profile edit | Edit profile with valid personal and bank account data | Profile is successfully updated | Equivalence Partitioning | Test the valid partition of profile update inputs |
+| [ ] | TC-EDIT-002 | Unsuccessful profile edit with invalid phone number | Edit profile with invalid phone number format | Show error message "Invalid phone number format" | Boundary Value Analysis | Test the minimum and maximum phone number length |
+| [ ] | TC-EDIT-003 | Unsuccessful profile edit with invalid email | Edit profile with invalid email format | Show error message "Invalid email format" | Equivalence Partitioning | Test the invalid partition where the input format doesn't match the expected email structure |
+| [x] | TC-DEP-001 | Open deposit page | Navigate to deposit page | Deposit page is displayed | Equivalence Partitioning | Test the valid partition of user credentials |
 
 # 4. Identified Bug/Issue
 
