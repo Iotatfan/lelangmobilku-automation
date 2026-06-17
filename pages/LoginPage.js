@@ -11,7 +11,7 @@ class LoginPage extends BasePage {
     this.loginButton = 'button:has-text("Masuk")';
     this.errorMessage = '.mosha__toast__content__description';
     this.wrongCredentialMessage = 'Username atau Password anda salah';
-    this.unregisteredEmailMessage = 'Username tidak di temukan/salah';
+    this.unregisteredEmailMessage = 'Username tidak ditemukan/salah';
     this.successDashboard = 'a:text("Profil Saya")';
   }
 

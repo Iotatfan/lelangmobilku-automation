@@ -18,4 +18,4 @@ Feature: Login
     When user enters unregistered email
     And user enters valid password
     And clicks Login button
-    Then show error message "Username tidak di temukan/salah"
+    Then show error message "Username tidak ditemukan/salah"
