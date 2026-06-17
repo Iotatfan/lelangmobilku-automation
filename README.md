@@ -1,4 +1,6 @@
-# 1. High Risk Area
+# Test Analysis
+
+## 1. High Risk Area
 
 | Feature | Risk Level | Reason |
 | :---: | :---: | :---: |
@@ -133,3 +135,51 @@ Feature: Deposit
 | Tidak terdapat proteksi OTP pada saat proses mengubah field penting seperti email dan password di edit profile page | High | High | Celah keamanan, akun dapat diambil alih tanpa sepengetahuan pemilik. |
 | Tampilan tab inactive pada navigasi terlihat seperti disabled | Low | Low | Desain UI kurang intuitif dan berpotensi membingunkan pengguna. |
 | Error message typo "ditemukan" seharusnya "ditemukan" | Low | Low | Kesalahan penulisan (typo). |
+
+# 5. Automated Test Suite
+
+## Prerequisites
+- Node.js (v18 or later)
+- npm
+
+## Setup
+
+Install dependencies:
+```bash
+npm install
+```
+
+Install Playwright browser binaries (Chromium only):
+```bash
+npx playwright install chromium
+```
+
+## Running Tests
+
+Run all BDD scenarios (generates spec files):
+```bash
+npm run test:bdd
+```
+
+To run Playwright tests directly without regenerating specs:
+```bash
+npm test
+```
+
+To regenerate BDD spec files only:
+```bash
+npm run bddgen
+```
+
+## Test Results
+
+| Output | Location |
+| --- | --- |
+| Playwright HTML Report | `playwright-report/index.html` |
+| Test Result Artifacts | `test-results/` |
+| Test Report (Markdown) | `docs/test-report.md` |
+
+Open the interactive HTML report after a test run:
+```bash
+npx playwright show-report
+```
