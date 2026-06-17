@@ -39,7 +39,7 @@ When('user enters valid personal details', async ({ registerPage }) => {
   await registerPage.fillPersonalDetails(buildValidPersonalDetails());
 });
 
-When('proceeds to bank account setup', async ({ registerPage }) => {
+When('click next button', async ({ registerPage }) => {
   await registerPage.clickNextButton();
 });
 
