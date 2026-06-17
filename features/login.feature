@@ -12,10 +12,10 @@ Feature: Login
     When user enters registered email
     And enters invalid password
     And clicks Login button
-    Then show error message "Email and password don't match"
+    Then show error message "Username atau Password anda salah"
 
   Scenario: Unsuccessful login with unregistered email
     When user enters unregistered email
     And user enters valid password
     And clicks Login button
-    Then show error message "Email and password don't match"
+    Then show error message "Username tidak di temukan/salah"

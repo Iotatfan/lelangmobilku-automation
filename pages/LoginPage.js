@@ -9,8 +9,10 @@ class LoginPage extends BasePage {
     this.captchaIframe = 'iframe[title="reCAPTCHA"]';
     this.captchaCheckbox = '#recaptcha-anchor';
     this.loginButton = 'button:has-text("Masuk")';
-    this.errorMessage = '.mosha__toast__content__text'; // verify locator
-    this.successDashboard = '.dashboard-header'; // verify locator
+    this.errorMessage = '.mosha__toast__content__description';
+    this.wrongCredentialMessage = 'Username atau Password anda salah';
+    this.unregisteredEmailMessage = 'Username tidak di temukan/salah';
+    this.successDashboard = 'a:text("Profil Saya")';
   }
 
   async goto() {
@@ -23,11 +25,9 @@ class LoginPage extends BasePage {
 
     await this.checkElement(this.tncCheckbox);
 
-    // Handle reCAPTCHA - click the checkbox to trigger verification
     const captchaFrame = this.page.frameLocator(this.captchaIframe);
     await captchaFrame.locator(this.captchaCheckbox).click();
-
-    await this.page.waitForTimeout(1000);
+    await captchaFrame.locator(`${this.captchaCheckbox}[aria-checked="true"]`).waitFor({ state: 'attached', timeout: 30000 });
   }
 
   async clickLoginButton() {

@@ -10,10 +10,14 @@ Edit Profile Page
 ```gherkin
 Feature: Register
 
-  Scenario: Sucessfull registration
+  Background:
     Given user is in Registration page
-    When user enter valid credentials data
-    And click Register button
+
+  Scenario: Successful registration
+    When user enters valid personal details
+    And proceeds to bank account setup
+    And enters valid bank account details
+    And clicks Register button
     Then account is successfully created
 ```
 
@@ -21,20 +25,37 @@ Feature: Register
 ```gherkin
 Feature: Register
 
-  Scenario: Unsuccessful registration with existing email
+  Background:
     Given user is in Registration page
-    When user enter existing email
-    And click Register button
-    Then show error message "Email already exists"
+
+  Scenario: Unsuccessful registration with existing email
+    When user enters existing email
+    And proceeds to bank account setup
+    Then show email already exists register error
+```
+
+### TS-REG-003
+```gherkin
+Feature: Register
+
+  Background:
+    Given user is in Registration page
+
+  Scenario: Unsuccessful registration with invalid email
+    When user enters invalid email
+    And proceeds to bank account setup
+    Then show invalid email register error
 ```
 
 ### TS-LOG-001
 ```gherkin
 Feature: Login
 
-  Scenario: Sucessfull login with valid credentials
+  Background:
     Given user is in Login page
-    When user enters valid email and password
+
+  Scenario: Successful login with valid credentials
+    When user enters valid credentials
     And clicks Login button
     Then account is successfully logged in
 ```
@@ -43,37 +64,42 @@ Feature: Login
 ```gherkin
 Feature: Login
 
-  Scenario: Unsucessfull login with invalid password
+  Background:
     Given user is in Login page
+
+  Scenario: Unsuccessful login with invalid password
     When user enters registered email
     And enters invalid password
     And clicks Login button
-    Then show error message "Email and password don't match"
+    Then show error message "Username atau Password anda salah"
 ```
 
 ### TS-LOG-003
 ```gherkin
 Feature: Login
 
-  Scenario: Unsucessfull login with invalid email
+  Background:
     Given user is in Login page
-    When user enters invalid email
-    And enters registered password
+
+  Scenario: Unsuccessful login with unregistered email
+    When user enters unregistered email
+    And user enters valid password
     And clicks Login button
-    Then show error message "Email and password don't match"
+    Then show error message "Username tidak di temukan/salah"
 ```
 
 # 3. Test Case Detail
 
 | ID Case | Test Scenario | Expected Result |
 | ------- | -------------- | --------------- |
-| TS-REG-001 | Successful registration | Account is successfully created |
-| TS-REG-002 | Unsuccessful registration with existing email | Show error message "Email already exists" |
-| TS-LOG-001 | Successful login with valid credentials | Account is successfully logged in |
-| TS-LOG-002 | Unsuccessful login with invalid password | Show error message "Email and password don't match" |
-| TS-EDIT-001 | Successful profile edit | Profile is successfully updated |
-| TS-EDIT-002 | Unsuccessful profile edit with invalid phone number | Show error message "Invalid phone number format" |
-| TS-EDIT-003 | Unsuccessful profile edit with invalid email | Show error message "Invalid email format" |
+| TC-REG-001 | Successful registration | Account is successfully created |
+| TC-REG-002 | Unsuccessful registration with existing email | Show error message "Email has already exist!" |
+| TC-REG-003 | Unsuccessful registration with invalid email | Show error message "Email must be a valid email" |
+| TC-LOG-001 | Successful login with valid credentials | Account is successfully logged in |
+| TC-LOG-002 | Unsuccessful login with invalid password | Show error message "Username atau Password anda salah" |
+| TC-EDIT-001 | Successful profile edit | Profile is successfully updated |
+| TC-EDIT-002 | Unsuccessful profile edit with invalid phone number | Show error message "Invalid phone number format" |
+| TC-EDIT-003 | Unsuccessful profile edit with invalid email | Show error message "Invalid email format" |
 
 # 4. Identified Bug/Issue
 
