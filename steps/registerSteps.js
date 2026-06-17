@@ -73,13 +73,17 @@ Then('show register error message {string}', async ({ registerPage }, errorMessa
 });
 
 Then('show email already exists register error', async ({ registerPage }) => {
-  const hasErrorMessage = await registerPage.hasErrorMessage(registerPage.errorEmailAlreadyExists);
-  expect(hasErrorMessage).toBeTruthy();
+  const messages = await registerPage.getErrorMessages();
+  const hasErrorMessage = messages.some(msg => msg.trim().includes(registerPage.errorEmailAlreadyExists));
+  expect(hasErrorMessage, `Expected error message to contain: "${registerPage.errorEmailAlreadyExists}". Got: ${JSON.stringify(messages)}`).toBeTruthy();
+  expect(messages.join(' ')).toContain(registerPage.errorEmailAlreadyExists);
 });
 
 Then('show invalid email register error', async ({ registerPage }) => {
-  const hasErrorMessage = await registerPage.hasErrorMessage(registerPage.errorEmailInvalid);
-  expect(hasErrorMessage).toBeTruthy();
+  const messages = await registerPage.getErrorMessages();
+  const hasErrorMessage = messages.some(msg => msg.trim().includes(registerPage.errorEmailInvalid));
+  expect(hasErrorMessage, `Expected error message to contain: "${registerPage.errorEmailInvalid}". Got: ${JSON.stringify(messages)}`).toBeTruthy();
+  expect(messages.join(' ')).toContain(registerPage.errorEmailInvalid);
 });
 
 When('user enters invalid email', async ({ registerPage }) => {

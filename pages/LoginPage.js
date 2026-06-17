@@ -12,7 +12,7 @@ class LoginPage extends BasePage {
     this.errorMessage = '.mosha__toast__content__description';
     this.wrongCredentialMessage = 'Username atau Password anda salah';
     this.unregisteredEmailMessage = 'Username tidak ditemukan/salah';
-    this.successDashboard = 'a:text("Profil Saya")';
+    this.profilePath = '/profil/data-diri';
   }
 
   async goto() {
@@ -39,14 +39,6 @@ class LoginPage extends BasePage {
     return await this.getText(this.errorMessage);
   }
 
-  async isSuccessfulLogin() {
-    try {
-      await this.waitForElement(this.successDashboard);
-      return true;
-    } catch (e) {
-      return false;
-    }
-  }
 }
 
 module.exports = LoginPage;

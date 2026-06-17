@@ -32,7 +32,6 @@ When('user selects the Deposit menu', async ({ depositPage }) => {
   await depositPage.clickDepositMenu();
 });
 
-Then('the Deposit page is displayed', async ({ depositPage }) => {
-  const isVisible = await depositPage.isDepositPageVisible();
-  expect(isVisible).toBeTruthy();
+Then('the Deposit page is displayed', async ({ depositPage, page }) => {
+  await expect(page).toHaveURL(depositPage.depositPath);
 });

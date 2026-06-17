@@ -19,9 +19,8 @@ When('clicks Login button', async ({ loginPage }) => {
   await loginPage.clickLoginButton();
 });
 
-Then('account is successfully logged in', async ({ loginPage }) => {
-  const isSuccess = await loginPage.isSuccessfulLogin();
-  expect(isSuccess).toBeTruthy();
+Then('account is successfully logged in', async ({ loginPage, page }) => {
+  await expect(page).toHaveURL(loginPage.profilePath);
 });
 
 When('user enters registered email', async ({ loginPage }) => {
@@ -33,9 +32,14 @@ When('enters invalid password', async ({ loginPage }) => {
   await loginPage.fillCredentials(loginPage.tempEmail, password);
 });
 
-Then('show error message {string}', async ({ loginPage }, errorMessage) => {
+Then('show wrong credential login error', async ({ loginPage }) => {
   const actualMessage = await loginPage.getErrorMessage();
-  expect(actualMessage).toContain(errorMessage);
+  expect(actualMessage, `Expected error message to contain: "${loginPage.wrongCredentialMessage}". Got: "${actualMessage}"`).toContain(loginPage.wrongCredentialMessage);
+});
+
+Then('show unregistered email login error', async ({ loginPage }) => {
+  const actualMessage = await loginPage.getErrorMessage();
+  expect(actualMessage, `Expected error message to contain: "${loginPage.unregisteredEmailMessage}". Got: "${actualMessage}"`).toContain(loginPage.unregisteredEmailMessage);
 });
 
 When('user enters unregistered email', async ({ loginPage }) => {

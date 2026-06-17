@@ -7,9 +7,9 @@ test.describe('Deposit', () => {
     await Given('user is on the profile page', null, { context, depositPage }); 
   });
   
-  test('Open deposit page from profile menu', { tag: ['@authenticated'] }, async ({ When, depositPage, Then }) => { 
+  test('Open deposit page from profile menu', { tag: ['@authenticated'] }, async ({ When, depositPage, Then, page }) => { 
     await When('user selects the Deposit menu', null, { depositPage }); 
-    await Then('the Deposit page is displayed', null, { depositPage }); 
+    await Then('the Deposit page is displayed', null, { depositPage, page }); 
   });
 
 });
